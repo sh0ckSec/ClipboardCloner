@@ -1,67 +1,25 @@
-# RFID Gooseneck
+# Clipboard Cloner
 
 Traditional RFID badge cloning methods require you to be within 3 feet of your target, so how can you conduct a socially distanced physical penetration test and clone a badge if you must stay at least 6 feet from a person? Since 2020, companies have increasingly adopted a hybrid work environment, allowing employees to partially work remotely, which has decreased the amount of foot traffic in and out of a building at any given time. After throwing around some ideas, I thought, why not create a mobile long-range reader device that we could deploy early in the morning at a client site and let it do all the work for us.  This project guide contains an entry-level hardware design that you can build in a day and deploy in the field in order to increase your chances of remotely cloning an RFID badge. 
 
-<img src="https://user-images.githubusercontent.com/104524120/183311963-9f5dcf63-abc1-46a2-9d27-cc1c80772709.png" width=50% height=50%> 
-
 This is part of a full paper and talk given during **DEFCON 30** in the Physical Bypass Village and Radio Frequency Village titled: **Keeping Your Distance: Pwning RFID Physical Access Controls From 6FT and Beyond** by myself and Twitter: @_badcharacters (https://www.youtube.com/watch?v=OLLaXOcuYfw). 
 
-The content has been updated for **DEFCON 31** titled: **Flipping Locks: Remote Badge Cloning with the Flipper Zero**. In this tutorial, you'll learn how to clone the badge loot from your RFID Gooseneck reader quickly and easily!
+The content has been updated for **DEFCON 31** titled: **Flipping Locks: Remote Badge Cloning with the Flipper Zero**. In this tutorial, you'll learn how to build you own Clipboard Cloner and clone the badge loot quickly and easily!
 
-Here's the full build guide for making your own RFID Goosneck Long Range Reader! 
+Here's the complete build guide for making your own Clipboard Cloner! 
 
  *Disclaimer:* **This guide is for educational and ethical hacking purposes ONLY. All penetration testing activities must be authorized by all relevant parties.**
 
-# Gooseneck Base Installation Guide 
-Ok, let's do this. 
 
-### Wooden Base BOM:
-* MDF or Plywood (16"x16"x0.5")
-* Non-Slip Furniture Feet: https://a.co/d/8oR8tHj  
-* Pedestal Pro 36"H Gooseneck: https://bit.ly/3bCz6go
-* 3/8" x 1 1/4" Carriage Bolts and Wing Nuts and Washers (Quantity of 6 each) 
-* Black Spray Paint
-
-### Step 1 - Cut Out Wood Base
-* If you have access to a laser cutter or a ShopBot, feel free to download the "GooseneckBaseMK2Template_sh0ck" template file(s) or cut out your own 16"x16" piece of MDF or plywood. 
-
-<img src="https://user-images.githubusercontent.com/104524120/183817491-c6211d51-2ad0-4fdc-9640-4c3279d4e3e6.PNG" width=40% height=40%>
-
-
-### Step 2 - Align Pedestal
-* Center the gooseneck pedestal and place the edge of the base approximately 1.25" away from the edge of the base. The 1.25" (3.175cm) distance from the edge will counter-balance the weight of the long-range reader so it will not tip over when installed. 
-* Next trace and drill the 3/8" mounting holes.
-
-<img src="https://user-images.githubusercontent.com/104524120/183817731-6e467b8a-858f-40c5-b102-00962ba5c13b.PNG" width=30% height=30%>
-
-
-### Step 3 - Paint
-* Spray the base with a matte black color of your choice.
-<img src="https://user-images.githubusercontent.com/104524120/183312993-d70ecfc4-aa1c-4495-b196-3730f4b221fc.jpg" width=30% height=30%>
-
-
-### Step 4 - Install Feet 
-* When the paint is dry, drill the non-slip furniture feet onto the bottom of the base. 
-<img src="https://user-images.githubusercontent.com/104524120/183314771-d5d37a13-9c6e-448e-8eae-d29da818cedc.PNG" width=40% height=40%>
-
-<img src="https://github.com/sh0ckSec/RFID-Gooseneck/assets/104524120/3c917766-4207-4be9-99af-205409b0b5a0" width=30% height=30%>
-
-
-### Step 5 - Fasten Pedestal to Base 
-Last, fasten the pedestal to the wooden base with bolts and wingnuts. Then place the pedestal cover over the top to conceal the screws. 
-
-<img src="https://user-images.githubusercontent.com/104524120/183313071-e98d3297-88a1-43da-954a-7ae55be843b5.jpg" width=30% height=30%>
-<img src="https://github.com/sh0ckSec/RFID-Gooseneck/assets/104524120/a572f8ec-7aba-4e21-b53a-0f709954f2e8" width=40% height=40%>
-
-
-# Long Range Reader Cloning Guide
+# Clipboard Cloner Guide
 Let's build the long-range reader cloning device. 
-### Long Range Reader BOM: 
+### Clipboard Cloner BOM: 
 * ESP RFID Tool: https://hackerwarehouse.com/product/esp-rfid-tool/
-* Low-Frequency Long Range Reader (e.g., HID MaxiProx 5375) OR High-Frequency Long Range Reader (e.g., HID iCLASS SE R90) 
+* Low-Frequency Reader (e.g., HID Prox Pro 5355AGN00 Reader): Check eBay for used units
 * Breadboard Jumper Wires - 3.9in (10cm): https://a.co/d/fja090p or 22AWG Wire: https://a.co/d/h7bbBom 
-* 18AWG 12V 5A DC Power Pigtail Barrel Plug Connector Cable: https://a.co/d/7l56UFQ
-* 12V 6000mAh/5V 12000mAh DC Battery: https://a.co/d/9czvggQ
+* 9V Rechargeable battery: https://www.amazon.com/dp/B0B9G9RQG3/ w/ T-Connector: https://www.amazon.com/dp/B07114RK67/
+* OR 2x 3.7V 500mAh LiPo Batteries:https://www.amazon.com/gp/product/B07BTV3W87/ with a JST connector (https://www.amazon.com/gp/product/B07NWD5NTN/)
+* 
 * 3M Dual Lock Clear Velcro: https://a.co/d/gg4SzBd
 
 ### Wiring Guide 
@@ -94,9 +52,6 @@ To remain as stealthy as possible, it is advised to turn off the audible "beep" 
 
 *Note: For various configurations, check out the official ESP RFID Tool wiring guide here: https://github.com/rfidtool/ESP-RFID-Tool/blob/master/Installation-Schematics/README.md*
 
-### ALTERNATIVE Raspberry Pi Setup: 
-If you would like an alternative raspberry pi cloning device setup, I **HIGHLY RECOMMEND** checking out Mike Kelly's (Twitter @lixmk) Wiegotcha – RFID Thief guide: 
-http://exfil.co/2017/01/17/wiegotcha-rfid-thief/ 
 
 # Battery Mounting
 Once you have wired everything, take 3M Dual Lock Velcro and affix it to the back of the battery and the back of the reader. This will ensure the battery will stay firm throughout the engagement and it looks like it is part of the unit. 
@@ -194,7 +149,7 @@ Boom! Happy Hunting!
 Special Shoutouts to the Bill Graydon of the Physical Security Village for hosting this talk during DEFCON 31!
 
 # OLD METHOD - Cloning Low-Frequency Cards - Android Phone + Proxmark3 Easy 
-**For the sake of documentation, I will leave the old method on this page. But finding the exact firmware for the Proxmark3 Easy can be tricky with now, unsupported AndProx App - it is highly recommended to use the Flipper Zero in the field for the easiest approach.**
+**For the sake of documentation, I will leave the old method on this page. But finding the exact firmware for the Proxmark3 Easy can be tricky with now, unsupported AndProx App - it is highly recommended to use the Flipper Zero in the field for the easiest approach. You can use a Proxmark3RDV4 and use the Proxmark HEX from the ESP RFID Tool.**
 
 To remain incognito while at the client site, cloning a card via an Android phone will keep the lowest profile rather than fiddling with a laptop when you need to copy the card data. 
 
@@ -255,11 +210,6 @@ Verify your card data:
 
 
 Boom! Happy Hunting!
-
-
-![D3FC0N](https://user-images.githubusercontent.com/104524120/183314908-3d3c6d66-29b2-4ba0-84ae-932c3c2ca782.PNG) 
-
-Special Shoutouts to the Bill Graydon of the Physical Security Village and Zero_Chaos of the Radio Frequency Village for hosting this talk during DEFCON 30!
 
 <a href="https://www.buymeacoffee.com/sh0cksec" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
