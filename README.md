@@ -1,5 +1,5 @@
 # Clipboard Cloner Guide
-<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/d192026f-7b01-42be-86a0-02881c9649fb" width=60% height=60%>
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/a7ce95e5-ea49-467b-8ba2-1c6a0fc96d1f" width=60% height=60%>
 
 This project guide contains an entry-level hardware design that you can build in a day and deploy in the field in order to increase your chances of cloning an RFID badge for your red team and ethical hacking engagements.
 
@@ -14,7 +14,8 @@ In this tutorial, you'll learn how to build your own Clipboard Cloner and clone 
 
 ## Let's build it. 
 
-<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/7f8412b1-eaf4-4ff9-88c9-7a1ad3da397d" width=50% height=50%>
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/d23fde5f-667a-41f6-9f36-e195921418f0" width=50% height=50%>
+
 
 ### Clipboard Cloner BOM: 
 
@@ -27,50 +28,50 @@ In this tutorial, you'll learn how to build your own Clipboard Cloner and clone 
 *  Low Voltage T-Connector: https://www.amazon.com/dp/B07114RK67/
 *  3M Command Adhesive strip: https://www.amazon.com/dp/B004OKKVOC/
 
-
-<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/89dcaf6b-7f65-44ab-9742-50829bfd41e9" width=80% height=80%>
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/475620fb-08ff-4759-a034-fe06b957f9e8" width=80% height=80%>
 
 Here's an example of the wire connections:
 
-<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/5d08fe76-5a50-4e85-81a8-d11fc956009c" width=40% height=40%>
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/e219df78-ddc0-4055-9fc3-a6e81fe318bd" width=40% height=40%>
 
 ### Disable Beeping Sound
-To remain as stealthy as possible, it is advised to turn off the audible "beep" if the reader allows you to. In this case, we can silence the beep on the HID Prox Pro 5355AGN00 reader by pushing down dipswitch #2 
+To remain as stealthy as possible, it is advised to turn off the audible "beep" if the reader allows you to. In this case, we can silence the beep on the HID Prox Pro 5355AGN00 reader by pushing down dipswitch #2.
 
-<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/7bd16b97-b18a-4cb8-8624-691cdeaf515e" width=40% height=40%>
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/005a402b-085d-4d4e-872e-3a207afabe08" width=40% height=40%>
 
 Flip switch #2 down to turn off the beeping sound.
 
-<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/3845054d-ce60-4a23-87cc-8aab208e5f85" width=40% height=40%>
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/3c05b88c-a50c-40e2-9514-eb2b20a60e33" width=40% height=40%>
 
 ### Secure Parts to Clipboard
 Use the 3M strips to secure it to the badge reader and the 9V inside of the clipboard so nothing jostles around while you're carrying it. 
 
-<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/0ee7dba3-8acb-49ca-8d1a-492b21173784" width=30% height=30%>
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/cce51b6d-5af4-4c38-ab0e-c424e78744ce" width=30% height=30%>
 
 Your final build will be sleek and sneaky.
 
-<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/ed358e36-5c37-4970-aa02-d0e17f8ecd9b" width=50% height=50%>
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/5112e62e-3448-4596-b713-2477a3f40123" width=50% height=50%>
 
 
 ## Wall Implant Wiring Guide - 3.7V 500mAh LiPo Batteries
 Let's take a look at the Wall Implant Remote badge cloner setup. If you want to create a wall implant to stick on a building, use LiPo batteries listed above so you can create an enclosed, all-in-one unit.
 
-![Wall-ImplantCapture](https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/011a2506-37d0-4d9b-9353-a492f007d929)
+![Wall-ImplantCapture](https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/f6b26e0e-a974-4908-b895-bad4cd0c31d8)
+
 
 Below is an example of the wiring guide to connect to a HID reader with screw-in terminals using the ESP RFID Tool. Use the color-coded male-to-male breadboard wires to connect the two terminal interfaces between the Wiegand system and the ESP RFID Tool, as seen below. 
 * Then connect the 2x 3.7V 600mAh LiPo Batteries in a series connection to power the reader and the ESP RFID Tool. These thin batteries will allow you to enclose all parts into the unit so it is nice and flat.
   
-<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/1aaddc85-c59e-4442-bcaf-08f21b8f3c51" width=80% height=80%>
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/d6572f16-697a-4da9-8855-f46fd8b62908" width=80% height=80%>
+
 
 Here is a picture of the wiring without the batteries connected.
 
-<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/1f78af57-319d-4ab9-bd67-7ab06f4a20ac" width=40% height=40%>
-
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/e5a1a0e5-d806-4963-bab4-874ea4966a09" width=40% height=40%>
 
 Here's a picture with the batteries connected with an ESPKey Wiegand Interception Tool installed. (https://www.redteamtools.com/espkey)
 
-<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/a17855b3-3a7b-43a2-a3da-1a2b248a0463" width=40% height=40%>
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/bf01c506-b4f6-43f8-a690-97081265b833" width=40% height=40%>
 
 
 *Note: For various configurations, check out the official ESP RFID Tool wiring guide here: https://github.com/rfidtool/ESP-RFID-Tool/blob/master/Installation-Schematics/README.md*
@@ -142,7 +143,7 @@ Boom! Happy Hunting!
 
 ![image](https://github.com/sh0ckSec/RFID-Gooseneck/assets/104524120/10bd4244-0146-4b59-b3f5-c6722533796d)
 
-Special Shoutouts to the Bill Graydon of the Physical Security Village for hosting this talk during DEFCON 31!
+Special Shoutouts to  the Physical Security Village team for hosting this talk during DEFCON 31!
 
 # OLD METHOD - Cloning Low-Frequency Cards - Android Phone + Proxmark3 Easy 
 **For the sake of documentation, I will leave the old method on this page. But finding the exact firmware for the Proxmark3 Easy can be tricky with now, unsupported AndProx App - it is highly recommended to use the Flipper Zero in the field for the easiest approach. You can use a Proxmark3RDV4 and use the Proxmark HEX from the ESP RFID Tool.**
