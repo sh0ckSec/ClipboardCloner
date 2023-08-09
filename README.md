@@ -35,11 +35,11 @@ Here's an example of the wire connections:
 <img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/e219df78-ddc0-4055-9fc3-a6e81fe318bd" width=40% height=40%>
 
 ### Disable Beeping Sound
-To remain as stealthy as possible, it is advised to turn off the audible "beep" if the reader allows you to. In this case, we can silence the beep on the HID Prox Pro 5355AGN00 reader by pushing down dipswitch #2.
+To remain as stealthy as possible, it is advised to turn off the audible "beep" if the reader allows you to. In this case, we can silence the beep on the HID Prox Pro 5355AGN00 reader by pushing down dipswitch SW-1 #2.
 
 <img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/005a402b-085d-4d4e-872e-3a207afabe08" width=40% height=40%>
 
-Flip switch #2 down to turn off the beeping sound.
+Flip switch SW-1 #2 down to turn off the beeping sound.
 
 <img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/3c05b88c-a50c-40e2-9514-eb2b20a60e33" width=40% height=40%>
 
