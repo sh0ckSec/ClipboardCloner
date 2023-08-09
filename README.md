@@ -1,85 +1,64 @@
-# Clipboard Cloner
+# Clipboard Cloner Guide
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/d192026f-7b01-42be-86a0-02881c9649fb" width=40% height=40%>
 
-Traditional RFID badge cloning methods require you to be within 3 feet of your target, so how can you conduct a socially distanced physical penetration test and clone a badge if you must stay at least 6 feet from a person? Since 2020, companies have increasingly adopted a hybrid work environment, allowing employees to partially work remotely, which has decreased the amount of foot traffic in and out of a building at any given time. After throwing around some ideas, I thought, why not create a mobile long-range reader device that we could deploy early in the morning at a client site and let it do all the work for us.  This project guide contains an entry-level hardware design that you can build in a day and deploy in the field in order to increase your chances of remotely cloning an RFID badge. 
+This project guide contains an entry-level hardware design that you can build in a day and deploy in the field in order to increase your chances of cloning an RFID badge for your red team and ethical hacking engagements. A simple social engineering interaction with a target while saying, "Hey, we're conducting a badge audit for our annual security audit. Can I see your badge?" Once your target gives you their badge, you can simply hover it over the clipboard and hand it back within 1 second, and you instantly copied their badge without them knowing any wiser.
 
 This is part of a full paper and talk given during **DEFCON 30** in the Physical Bypass Village and Radio Frequency Village titled: **Keeping Your Distance: Pwning RFID Physical Access Controls From 6FT and Beyond** by myself and Twitter: @_badcharacters (https://www.youtube.com/watch?v=OLLaXOcuYfw). 
 
-The content has been updated for **DEFCON 31** titled: **Flipping Locks: Remote Badge Cloning with the Flipper Zero**. In this tutorial, you'll learn how to build you own Clipboard Cloner and clone the badge loot quickly and easily!
-
-Here's the complete build guide for making your own Clipboard Cloner! 
+The content has been updated for **DEFCON 31** titled: **Flipping Locks: Remote Badge Cloning with the Flipper Zero**. In this tutorial, you'll learn how to build your own Clipboard Cloner and clone the badge loot quickly and easily!
 
  *Disclaimer:* **This guide is for educational and ethical hacking purposes ONLY. All penetration testing activities must be authorized by all relevant parties.**
 
+## Let's build it. 
 
-# Clipboard Cloner Guide
-Let's build the long-range reader cloning device. 
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/7f8412b1-eaf4-4ff9-88c9-7a1ad3da397d" width=50% height=50%>
+
 ### Clipboard Cloner BOM: 
+
+* Officemate Super Storage Supply Clipboard Case: https://www.amazon.com/gp/product/B07C66Z5RM/ 
 * ESP RFID Tool: https://hackerwarehouse.com/product/esp-rfid-tool/
 * Low-Frequency Reader (e.g., HID Prox Pro 5355AGN00 Reader): Check eBay for used units
 * Breadboard Jumper Wires - 3.9in (10cm): https://a.co/d/fja090p or 22AWG Wire: https://a.co/d/h7bbBom 
-* 9V Rechargeable battery: https://www.amazon.com/dp/B0B9G9RQG3/ w/ T-Connector: https://www.amazon.com/dp/B07114RK67/
-* OR 2x 3.7V 500mAh LiPo Batteries:https://www.amazon.com/gp/product/B07BTV3W87/ with a JST connector (https://www.amazon.com/gp/product/B07NWD5NTN/)
-* 
-* 3M Dual Lock Clear Velcro: https://a.co/d/gg4SzBd
+* Clipboard Battery - 9V Rechargeable battery: https://www.amazon.com/dp/B0B9G9RQG3/ and 9V Battery Clip Connector Battery: https://www.amazon.com/gp/product/B07P9HK38C/ 
+* Wall Implant Batteries - 2x 3.7V 500mAh LiPo Batteries:https://www.amazon.com/gp/product/B07BTV3W87/ with a JST connector: https://www.amazon.com/gp/product/B07NWD5NTN/ AND a UY connector: https://www.amazon.com/gp/product/B071R2J7JP/
+*  Low Voltage T-Connector: https://www.amazon.com/dp/B07114RK67/
+*  3M Command Adhesive strip: https://www.amazon.com/dp/B004OKKVOC/
 
-### Wiring Guide 
-Below is an example of the wiring guide to connect to a long-range reader with screw-in terminals using the ESP RFID Tool. Use the color-coded male-to-male breadboard wires to connect the two terminal interfaces between the Wiegand system and the ESP RFID Tool, as seen below.
 
-<img src="https://user-images.githubusercontent.com/104524120/183313184-f8f62a73-4bb1-403b-8c65-bfd9d5edac78.PNG" width=80% height=80%>
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/89dcaf6b-7f65-44ab-9742-50829bfd41e9" width=80% height=80%>
 
-* Then connect the 12V 5A DC Power Pigtail Barrel Plug Male Connector cable into the Wiegand system (HID iClass SE R90 pictured) and trail the cable to the outside of the reader so you can plug it into the 12V 6000mAh DC Battery. 
+Here's an example of the wire connections:
 
-<img src="https://user-images.githubusercontent.com/104524120/183816676-e13ef2d6-b493-4d49-baa1-03c0f9d288a2.jpg" width=40% height=40%>
 
-The same wiring applies to the low-frequency HID MaxiProx 5375 reader. 
+Use the 3M strips to secure it to the badge reader and the 9V inside of the clipboard so nothing jostles around while you're carrying it. 
 
-<img src="https://github.com/sh0ckSec/RFID-Gooseneck/assets/104524120/1093738d-37ee-41df-a2d2-f16fe91940dd" width=40% height=40%>
+3M PICTURE
 
-Close-up of HID MaxiProx 5375 Wiring:
+To remain as stealthy as possible, it is advised to turn off the audible "beep" if the reader allows you to. In this case, we can silence the beep on the HID Prox Pro 5355AGN00 reader by pushing down dipswitch #4 of SW1 (the farthest right of the switch sets)......
 
-<img src="https://github.com/sh0ckSec/RFID-Gooseneck/assets/104524120/b3ee2581-b815-4f37-a525-e5853a5ddace" width=40% height=40%>
+INSERT DIP SWITCH PIC
 
-*WARNING:* Ensure when you are working with the HID MaxiProx 5375 that you change the jumper on the Shunt Pins settings from 2 and 3 +21-2.85 VDC (Default) TO Shunt Pins 1 and 2 +11.6-20.9VDC) because we are using a 12V battery. If you do not switch the jumper, you will fry the unit! YOU'VE BEEN WARNED! Double-check this for any reader you are working with, just in case. 
 
-<img src="https://github.com/sh0ckSec/RFID-Gooseneck/assets/104524120/b41eb1ec-1524-4aae-b135-6da0f19b80b5" width=40% height=40%>
+### Wall Implant Wiring Guide - 3.7V 500mAh LiPo Batteries
+If you want to create a wall implant to stick on a building, use LiPo batteries listed above so you can create an enclosed, all-in-one unit.
+![Wall-ImplantCapture](https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/011a2506-37d0-4d9b-9353-a492f007d929)
+Below is an example of the wiring guide to connect to a HID reader with screw-in terminals using the ESP RFID Tool. Use the color-coded male-to-male breadboard wires to connect the two terminal interfaces between the Wiegand system and the ESP RFID Tool, as seen below. 
+* Then connect the 2x 3.7V 600mAh LiPo Batteries in a series connection to power the reader and the ESP RFID Tool. These thin batteries will allow you to enclose all parts into the unit so it is nice and flat
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/1aaddc85-c59e-4442-bcaf-08f21b8f3c51" width=80% height=80%>
 
-To remain as stealthy as possible, it is advised to turn off the audible "beep" if the reader allows you to. In this case, we can silence the beep on the HID MaxiProx 5375 reader by pushing down dipswitch #4 of SW1 (the farthest right of the switch sets). 
+Here is a picture of the wiring without the batteries connected.
 
-<img src="https://github.com/sh0ckSec/RFID-Gooseneck/assets/104524120/a1cb567d-821a-4a09-8444-d661cca4b558" width=40% height=40%>
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/1f78af57-319d-4ab9-bd67-7ab06f4a20ac" width=40% height=40%>
 
-*Image Source: http://exfil.co/2017/01/17/wiegotcha-rfid-thief/*
+
+Here's a picture with the batteries connected with an ESPKey Wiegand Interception Tool installed. (https://www.redteamtools.com/espkey)
+
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/a17855b3-3a7b-43a2-a3da-1a2b248a0463" width=40% height=40%>
 
 
 *Note: For various configurations, check out the official ESP RFID Tool wiring guide here: https://github.com/rfidtool/ESP-RFID-Tool/blob/master/Installation-Schematics/README.md*
 
-
-# Battery Mounting
-Once you have wired everything, take 3M Dual Lock Velcro and affix it to the back of the battery and the back of the reader. This will ensure the battery will stay firm throughout the engagement and it looks like it is part of the unit. 
-
-HID MaxiProx 5375
-
-<img src="https://github.com/sh0ckSec/RFID-Gooseneck/assets/104524120/b8f3ed3f-412c-4578-aa44-349defcdae07" width=40% height=40%>
-
-HID R90 
-
-<img src="https://github.com/sh0ckSec/RFID-Gooseneck/assets/104524120/f1c144d7-388c-406d-90e7-b537d8885114" width=40% height=40%>
-
-HID R90 
-
-<img src="https://github.com/sh0ckSec/RFID-Gooseneck/assets/104524120/dff98303-762d-467b-a10d-4417b1a18d12" width=40% height=40%>
-          
-# Mounting Reader to Pedestal
-Depending on the reader, you must find the correct mounting hole guide for each. You will have to manually drill holes into the back of the reader in order to center it to the gooseneck pedestal with carriage bolts and nuts. Below is an example mount guide for the HID iCLASS R90.
-
-<img src="https://user-images.githubusercontent.com/104524120/183313721-397f9938-6629-4a41-a248-e4815d4de5c0.PNG" width=40% height=40%>
-
-iCLASS SE Mounting and User Guide: https://fccid.io/JQ6-ICLASSU90/User-Manual/User-Manual-2360366 
-
-HID iClass R90 Gooseneck finished look: 
-
-<img src="https://user-images.githubusercontent.com/104524120/183314105-ac8e840d-e4df-4971-92a6-41a3f69e5eaa.jpg" width=40% height=40%>
-
-# NEW (UPDATED) - Cloning Low-Frequency Cards - Mobile Phone + Flipper Zero
+# Cloning Low-Frequency Cards - Mobile Phone + Flipper Zero
 To remain incognito while at the client site, cloning a card with a mobile phone and a Flipper Zero hidden away will keep the lowest profile rather than fiddling with a laptop when you need to copy the card data. 
 
 ### Mobile Cloning Gear:
