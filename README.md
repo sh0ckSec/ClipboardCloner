@@ -1,5 +1,5 @@
 # Clipboard Cloner Guide
-<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/d192026f-7b01-42be-86a0-02881c9649fb" width=50% height=50%>
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/d192026f-7b01-42be-86a0-02881c9649fb" width=60% height=60%>
 
 This project guide contains an entry-level hardware design that you can build in a day and deploy in the field in order to increase your chances of cloning an RFID badge for your red team and ethical hacking engagements.
 
