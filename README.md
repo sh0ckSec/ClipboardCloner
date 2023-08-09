@@ -1,11 +1,14 @@
 # Clipboard Cloner Guide
-<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/d192026f-7b01-42be-86a0-02881c9649fb" width=40% height=40%>
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/d192026f-7b01-42be-86a0-02881c9649fb" width=50% height=50%>
 
-This project guide contains an entry-level hardware design that you can build in a day and deploy in the field in order to increase your chances of cloning an RFID badge for your red team and ethical hacking engagements. A simple social engineering interaction with a target while saying, "Hey, we're conducting a badge audit for our annual security audit. Can I see your badge?" Once your target gives you their badge, you can simply hover it over the clipboard and hand it back within 1 second, and you instantly copied their badge without them knowing any wiser.
+This project guide contains an entry-level hardware design that you can build in a day and deploy in the field in order to increase your chances of cloning an RFID badge for your red team and ethical hacking engagements.
+
+Use this build and a simple social engineering interaction with a target. **"Hey, we're conducting a badge audit for our annual security audit. Can I see your badge?"** Once your target gives you their badge, you can simply hover it over the clipboard and hand it back within 1 second - you instantly copied their badge without them knowing any wiser.
 
 This is part of a full paper and talk given during **DEFCON 30** in the Physical Bypass Village and Radio Frequency Village titled: **Keeping Your Distance: Pwning RFID Physical Access Controls From 6FT and Beyond** by myself and Twitter: @_badcharacters (https://www.youtube.com/watch?v=OLLaXOcuYfw). 
+The content has been updated for **DEFCON 31** titled: **Flipping Locks: Remote Badge Cloning with the Flipper Zero**. 
 
-The content has been updated for **DEFCON 31** titled: **Flipping Locks: Remote Badge Cloning with the Flipper Zero**. In this tutorial, you'll learn how to build your own Clipboard Cloner and clone the badge loot quickly and easily!
+In this tutorial, you'll learn how to build your own Clipboard Cloner and clone the badge loot quickly and easily!
 
  *Disclaimer:* **This guide is for educational and ethical hacking purposes ONLY. All penetration testing activities must be authorized by all relevant parties.**
 
@@ -19,7 +22,7 @@ The content has been updated for **DEFCON 31** titled: **Flipping Locks: Remote 
 * ESP RFID Tool: https://hackerwarehouse.com/product/esp-rfid-tool/
 * Low-Frequency Reader (e.g., HID Prox Pro 5355AGN00 Reader): Check eBay for used units
 * Breadboard Jumper Wires - 3.9in (10cm): https://a.co/d/fja090p or 22AWG Wire: https://a.co/d/h7bbBom 
-* Clipboard Battery - 9V Rechargeable battery: https://www.amazon.com/dp/B0B9G9RQG3/ and 9V Battery Clip Connector Battery: https://www.amazon.com/gp/product/B07P9HK38C/ 
+* Clipboard Battery - 9V Rechargeable battery: https://www.amazon.com/dp/B0B9G9RQG3/ and 9V Battery Clip Connector: https://www.amazon.com/gp/product/B07P9HK38C/ 
 * Wall Implant Batteries - 2x 3.7V 500mAh LiPo Batteries:https://www.amazon.com/gp/product/B07BTV3W87/ with a JST connector: https://www.amazon.com/gp/product/B07NWD5NTN/ AND a UY connector: https://www.amazon.com/gp/product/B071R2J7JP/
 *  Low Voltage T-Connector: https://www.amazon.com/dp/B07114RK67/
 *  3M Command Adhesive strip: https://www.amazon.com/dp/B004OKKVOC/
@@ -29,21 +32,35 @@ The content has been updated for **DEFCON 31** titled: **Flipping Locks: Remote 
 
 Here's an example of the wire connections:
 
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/5d08fe76-5a50-4e85-81a8-d11fc956009c" width=40% height=40%>
 
+### Disable Beeping Sound
+To remain as stealthy as possible, it is advised to turn off the audible "beep" if the reader allows you to. In this case, we can silence the beep on the HID Prox Pro 5355AGN00 reader by pushing down dipswitch #2 
+
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/7bd16b97-b18a-4cb8-8624-691cdeaf515e" width=40% height=40%>
+
+Flip switch #2 down to turn off the beeping sound.
+
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/3845054d-ce60-4a23-87cc-8aab208e5f85" width=40% height=40%>
+
+### Secure Parts to Clipboard
 Use the 3M strips to secure it to the badge reader and the 9V inside of the clipboard so nothing jostles around while you're carrying it. 
 
-3M PICTURE
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/0ee7dba3-8acb-49ca-8d1a-492b21173784" width=30% height=30%>
 
-To remain as stealthy as possible, it is advised to turn off the audible "beep" if the reader allows you to. In this case, we can silence the beep on the HID Prox Pro 5355AGN00 reader by pushing down dipswitch #4 of SW1 (the farthest right of the switch sets)......
+Your final build will be sleek and sneaky.
 
-INSERT DIP SWITCH PIC
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/ed358e36-5c37-4970-aa02-d0e17f8ecd9b" width=50% height=50%>
 
 
-### Wall Implant Wiring Guide - 3.7V 500mAh LiPo Batteries
-If you want to create a wall implant to stick on a building, use LiPo batteries listed above so you can create an enclosed, all-in-one unit.
+## Wall Implant Wiring Guide - 3.7V 500mAh LiPo Batteries
+Let's take a look at the Wall Implant Remote badge cloner setup. If you want to create a wall implant to stick on a building, use LiPo batteries listed above so you can create an enclosed, all-in-one unit.
+
 ![Wall-ImplantCapture](https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/011a2506-37d0-4d9b-9353-a492f007d929)
+
 Below is an example of the wiring guide to connect to a HID reader with screw-in terminals using the ESP RFID Tool. Use the color-coded male-to-male breadboard wires to connect the two terminal interfaces between the Wiegand system and the ESP RFID Tool, as seen below. 
-* Then connect the 2x 3.7V 600mAh LiPo Batteries in a series connection to power the reader and the ESP RFID Tool. These thin batteries will allow you to enclose all parts into the unit so it is nice and flat
+* Then connect the 2x 3.7V 600mAh LiPo Batteries in a series connection to power the reader and the ESP RFID Tool. These thin batteries will allow you to enclose all parts into the unit so it is nice and flat.
+  
 <img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/1aaddc85-c59e-4442-bcaf-08f21b8f3c51" width=80% height=80%>
 
 Here is a picture of the wiring without the batteries connected.
