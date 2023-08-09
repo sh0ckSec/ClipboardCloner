@@ -14,7 +14,7 @@ In this tutorial, you'll learn how to build your own Clipboard Cloner and clone 
 
 ## Let's build it. 
 
-<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/d23fde5f-667a-41f6-9f36-e195921418f0" width=50% height=50%>
+<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/d23fde5f-667a-41f6-9f36-e195921418f0" width=60% height=60%>
 
 
 ### Clipboard Cloner BOM: 
