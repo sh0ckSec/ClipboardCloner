@@ -71,9 +71,10 @@ Below is an example of the wiring guide to connect to a HID reader with screw-in
 <img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/d6572f16-697a-4da9-8855-f46fd8b62908" width=80% height=80%>
 
 
-Here is a picture of the wiring without the batteries connected.
+Here is a picture of the wiring with the batteries connected.
 
-<img src="https://github.com/sh0ckSec/ClipboardCloner/assets/104524120/e5a1a0e5-d806-4963-bab4-874ea4966a09" width=40% height=40%>
+![image](https://github.com/user-attachments/assets/b83251c7-7c44-4b61-9b87-fd4f0668ecbe)
+
 
 Here's a picture with the batteries connected with an ESPKey Wiegand Interception Tool installed. (https://www.redteamtools.com/espkey)
 
@@ -148,8 +149,9 @@ In a few seconds...
 Boom! Happy Hunting! 
 
 ![image](https://github.com/sh0ckSec/RFID-Gooseneck/assets/104524120/10bd4244-0146-4b59-b3f5-c6722533796d)
+![DC32](https://github.com/user-attachments/assets/8d56f4a6-3123-49d1-a24a-8314c1fa08e6)
 
-Special Shoutouts to  the Physical Security Village team for hosting this talk during DEFCON 31!
+Special Shoutouts to  the Physical Security Village team for hosting this talk during DEFCON!
 
 # OLD METHOD - Cloning Low-Frequency Cards - Android Phone + Proxmark3 Easy 
 **For the sake of documentation, I will leave the old method on this page. But finding the exact firmware for the Proxmark3 Easy can be tricky with now, unsupported AndProx App - it is highly recommended to use the Flipper Zero in the field for the easiest approach. You can use a Proxmark3RDV4 and use the Proxmark HEX from the ESP RFID Tool.**
