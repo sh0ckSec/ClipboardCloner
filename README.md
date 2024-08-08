@@ -5,8 +5,14 @@ This project guide contains an entry-level hardware design that you can build in
 
 Use this build and a simple social engineering interaction with a target. **"Hey, we're conducting a badge audit for our annual security audit. Can I see your badge?"** Once your target gives you their badge, you can simply hover it over the clipboard and hand it back within 1 second - you instantly copied their badge without them knowing any wiser.
 
-This is part of a full paper and talk given during **DEFCON 30** in the Physical Bypass Village and Radio Frequency Village titled: **Keeping Your Distance: Pwning RFID Physical Access Controls From 6FT and Beyond** by myself and Twitter: @_badcharacters (https://www.youtube.com/watch?v=OLLaXOcuYfw). 
-The content has been updated for **DEFCON 31** titled: **Flipping Locks: Remote Badge Cloning with the Flipper Zero**. 
+This is part of a full paper and talk given during **DEFCON 30, 31 and 32** in the Physical Bypass Village **Keeping Your Distance: Pwning RFID Physical Access Controls From 6FT and Beyond** by myself and Twitter: @_badcharacters (https://www.youtube.com/watch?v=OLLaXOcuYfw). Each year the content is reiterated and improved upon, staying up on the latest techniques and gadgets to use in the field. The goal is to conduct a physical pen test without the need for a laptop, only a mobile phone and implant devices!
+
+![DC32](https://github.com/user-attachments/assets/8d56f4a6-3123-49d1-a24a-8314c1fa08e6)
+
+The content has been updated for **DEFCON 32** titled: **Flipping Locks (The Remix): Remote Badge Cloning with the Flipper Zero and More**. In this tutorial, you'll learn how to clone the badge loot from your RFID Gooseneck reader quickly and easily!
+
+#### NOTE: iCLASS SE/SEOS Downgrade Attack and Legacy Attack Methods are updated in the latest slide deck from DEF CON 32 (2024) - download the .pdf to review the attack methods.
+
 
 In this tutorial, you'll learn how to build your own Clipboard Cloner and clone the badge loot quickly and easily!
 
